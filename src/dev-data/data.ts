@@ -1,4 +1,4 @@
-interface dataType {
+export interface dataType {
   id: number;
   name: string;
   price: number;
@@ -51,3 +51,9 @@ export const data: dataType[] = [
     image: 'https://www.licious.in/blog/wp-content/uploads/2020/12/Egg-Noodles-min.jpg'
   }
 ];
+const categories = [...new Set(data.map((item) => item.category))].sort();
+categories.unshift('All');
+const categoriesData = categories.map((item, index) => ({ category: item, id: index + 1, isActive: false }));
+
+const initialData = categoriesData.map((obj) => (obj.id === 1 ? { ...obj, isActive: true } : obj));
+export { initialData };

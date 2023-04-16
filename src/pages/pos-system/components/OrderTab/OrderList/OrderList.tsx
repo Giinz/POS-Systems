@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import OrderItem from './OrderItem';
 import { RootState } from 'app/store';
 import { Order } from 'types/order.type';
-import { decrementQuantity, incrementQuantity } from 'pages/pos-system/POS.slice';
+import { decrementQuantity, incrementQuantity } from 'app/slice/POS.slice';
 
 const OrderList = () => {
   const orderList = useSelector((state: RootState) => state.order);

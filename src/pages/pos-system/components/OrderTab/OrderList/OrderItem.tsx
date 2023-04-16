@@ -1,4 +1,4 @@
-import { convertNum } from '../../../../utils/convertNum';
+import { convertNum } from '../../../../../utils/convertNum';
 
 interface OrderItemType {
   itemName: string;

@@ -1,9 +1,12 @@
-import POS from 'pages/pos-system/POS';
+import DefaultLayout from 'LayOut/DefaultLayout';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div className='App'>
-      <POS />
+      <DefaultLayout>
+        <Outlet />
+      </DefaultLayout>
     </div>
   );
 }
