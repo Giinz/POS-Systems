@@ -7,13 +7,28 @@ const TotalItems = () => {
   const [subTotal, setSubTotal] = useState<number>(0);
   const [discount, setDiscount] = useState<number>(0);
   const orderList = useSelector((state: RootState) => state.order);
+  const priceTag = useSelector((state: RootState) => state.priceTag);
 
   useEffect(() => {
     const subToTalCalc = orderList.reduce((curr, prev) => {
-      return curr + prev.price * prev.quantity;
+      let productPrice: number = 0;
+      switch (priceTag) {
+        case 'A':
+          productPrice = prev.price1;
+          break;
+        case 'B':
+          productPrice = prev.price2;
+          break;
+        case 'C':
+          productPrice = prev.price3;
+          break;
+        default:
+          break;
+      }
+      return curr + productPrice * prev.quantity;
     }, 0);
     setSubTotal(subToTalCalc);
-  }, [orderList]);
+  }, [orderList, priceTag]);
 
   return (
     <div className='mt-5 px-5'>

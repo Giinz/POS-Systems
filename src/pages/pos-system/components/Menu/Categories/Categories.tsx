@@ -15,7 +15,7 @@ const Categories = () => {
   };
 
   return (
-    <div className='mt-5 flex flex-row px-5'>
+    <div className=' flex flex-row px-2'>
       {initialData.map((item) => (
         <CategoriesItem
           key={item.id}

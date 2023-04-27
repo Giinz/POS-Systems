@@ -1,8 +1,3 @@
-import { Outlet } from 'react-router-dom';
-import Categories from './components/Menu/Categories/Categories';
-import OrderList from './components/OrderTab/OrderList/OrderList';
-import ProductList from './components/Menu/ProductList/ProductList';
-import TotalItems from './components/OrderTab/TotalItems/TotalItems';
 import Menu from './components/Menu/Menu';
 import OrderTab from './components/OrderTab/OrderTab';
 

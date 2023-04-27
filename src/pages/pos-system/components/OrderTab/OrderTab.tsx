@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteAllOrder } from '../../../../app/slice/POS.slice';
+import { deleteAllOrder } from '../../../../app/slice/order.slice';
 import { useRef, useCallback } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import OrderList from './OrderList/OrderList';
@@ -13,8 +13,7 @@ const OrderTab = () => {
   };
   const handlePrint = useReactToPrint({
     content: useCallback(() => orderListRef.current, []),
-    documentTitle: `Bill ${new Date().toLocaleDateString()}`,
-    onAfterPrint: useCallback(() => dispatch(deleteAllOrder()), [dispatch])
+    documentTitle: `Bill ${new Date().toLocaleDateString()}`
   });
 
   return (

@@ -4,6 +4,9 @@ export interface ProductPropType {
   image: string;
   handleClick: () => void;
 }
-export type ProductType = Omit<ProductPropType, 'handleClick'> & {
+export type ProductType = Omit<ProductPropType, 'handleClick' | 'price'> & {
   id: number;
+  price1: number;
+  price2: number;
+  price3: number;
 };

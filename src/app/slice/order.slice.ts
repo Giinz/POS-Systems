@@ -30,8 +30,19 @@ const orderSlice = createSlice({
         productInOrder.quantity === 0 && foundOrderIndex !== -1 && state.splice(foundOrderIndex, 1);
       }
     },
+    changeQuantityByValue: (state, action: PayloadAction<{ order: Order; value: string }>) => {
+      const productInOrder = state.find((item) => item.id === action.payload.order.id);
+      if (productInOrder) {
+        productInOrder.quantity = parseInt(action.payload.value);
+        if (!action.payload.value || parseInt(action.payload.value) <= 0) productInOrder.quantity = 1;
+      }
+    },
     deleteAllOrder: (state) => {
       state.length = 0;
+    },
+    deleteOrderItem: (state, action: PayloadAction<number>) => {
+      const orderItemIndexToDelete = state.findIndex((item) => item.id === action.payload);
+      orderItemIndexToDelete && state.splice(orderItemIndexToDelete, 1);
     }
   }
 });
@@ -39,4 +50,5 @@ const orderSlice = createSlice({
 const orderReducer = orderSlice.reducer;
 
 export default orderReducer;
-export const { addItem, incrementQuantity, decrementQuantity, deleteAllOrder } = orderSlice.actions;
+export const { addItem, incrementQuantity, decrementQuantity, deleteAllOrder, changeQuantityByValue, deleteOrderItem } =
+  orderSlice.actions;
