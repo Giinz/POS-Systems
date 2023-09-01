@@ -12,7 +12,7 @@ const Product = ({ name, price, image, handleClick }: ProductPropType) => {
       </div>
       <div className='flex flex-row items-center justify-between'>
         <span className='self-end text-lg font-bold text-yellow-500'>{convertNum(price)}</span>
-        <img src={image} alt='sample' className=' h-14 w-14 rounded-md object-cover' />
+        <img src={image} alt='sample' className=' hidden h-14 w-14 rounded-md object-cover md:block' />
       </div>
     </div>
   );

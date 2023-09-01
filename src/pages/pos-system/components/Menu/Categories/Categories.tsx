@@ -15,7 +15,7 @@ const Categories = () => {
   };
 
   return (
-    <div className=' flex flex-row px-2'>
+    <div className='flex w-full flex-row justify-evenly overflow-scroll no-scrollbar px-2'>
       {initialData.map((item) => (
         <CategoriesItem
           key={item.id}

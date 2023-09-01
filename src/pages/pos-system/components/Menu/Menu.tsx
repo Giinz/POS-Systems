@@ -5,7 +5,7 @@ import ProductList from './ProductList/ProductList';
 const Menu = () => {
   return (
     <div className='mt-5'>
-      <div className='mt-5 flex items-center justify-between'>
+      <div className='mt-5 flex flex-col items-center justify-between md:flex-row'>
         <Categories />
         <PriceTag />
       </div>
